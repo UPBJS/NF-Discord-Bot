@@ -35,18 +35,12 @@ async def on_ready():
     print(f"{Back.BLUE}{Fore.WHITE}Bot is logged in as > {Back.MAGENTA}{Fore.WHITE}{client.user.name}{Fore.RESET}{Back.RESET}")
     if banlol.get_task() == None:
         banlol.start()
-        print("banlol init-ted")
 
 
 @tree.command(name="bruh", description="Bruhs, dramatically")  # REMOVE IN PROD
 async def slash_command(interaction: discord.Interaction):
     await interaction.response.send_message("**Bruh.**")
-
-
-@tree.command(name="debug_command", description="will be removed in prod")
-async def slash_command(interaction: discord.Interaction, emoji: str):
-    await interaction.response.send_message("no debug command set")
-
+    
 
 @tree.command(name="clear_channel", description="Clears the channel the command is executed in [ADMIN ONLY]")
 async def slash_command(interaction: discord.Interaction):
@@ -337,7 +331,6 @@ workMessages = [
 ]
 
 
-# TODO: ADD 20sec COOLDOWN
 @tree.command(name="work", description="Work for some money")
 async def slash_command(interaction: discord.Interaction):
     query = f"SELECT * FROM serversData WHERE serverId = {interaction.guild.id}"
